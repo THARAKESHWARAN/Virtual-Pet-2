@@ -2,7 +2,8 @@ var dogImg, happyDog, milkImg;
 var dog, food;
 var database, Foodref;
 var state;
-var feedButton;
+var feedButton;;
+var meridian;
 
 
 function setup() {
@@ -30,7 +31,8 @@ function draw() {
   strokeWeight(2);
 
   drawSprites();
-
+ 
+ var hur = hour()
 
   dog.display();
 
@@ -45,7 +47,13 @@ function draw() {
   }
 
   text("Food available: " + food.stock, 50, 50);
-  text("Last Fed: "+food.fedHour+":"+food.fedMinute, 30, 350);
+
+  if(hur > 12){
+    meridian = "pm";
+  }else{
+    meridian = "am";
+  }
+  text("Last Fed: "+food.fedHour+":"+food.fedMinute + meridian, 30, 350);
 
   if (food.stock > 0) {
     feedButton.mousePressed(() => {
@@ -85,8 +93,10 @@ function buttons() {
 
 function hours(){ 
   var hor = hour();
-  console.log(hor);
   var min = minute();
+  if(hor > 12){
+    hor = hor - 12;
+  }
   food.updateLastFed(hor, min);
 }
 
