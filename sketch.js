@@ -53,7 +53,7 @@ function draw() {
   }else{
     meridian = "am";
   }
-  text("Last Fed: "+food.fedHour+":"+food.fedMinute + meridian, 30, 350);
+  text("Last Fed: "+food.fedHour+":"+food.fedMinute +" "+ meridian, 30, 350);
 
   if (food.stock > 0) {
     feedButton.mousePressed(() => {
