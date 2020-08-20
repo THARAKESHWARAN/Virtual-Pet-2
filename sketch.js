@@ -38,14 +38,6 @@ function draw() {
 
   food.actions();
 
-  if (dog.state === "hungry") {
-    text("You can Feed Your Dog Pressing Up-arrow!", 50, 470);
-  }
-
-  if (dog.state === "happy") {
-    text("If you need to get food, come back at even hours!", 30, 470);
-  }
-
   text("Food available: " + food.stock, 50, 50);
 
   if(hur > 12){
