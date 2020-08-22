@@ -42,6 +42,13 @@ class Food {
         var y = 100;
         var a = 80;
         var b = 160;
+        var min = minute();
+
+        if(dog.state !== "hungry"){
+            if(LastFed + 2 === min){
+                dog.state = "hungry";
+            }
+        }
         if (this.stock > 10) {
             this.s = 10
         } else {

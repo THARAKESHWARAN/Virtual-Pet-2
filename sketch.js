@@ -4,7 +4,7 @@ var database, Foodref;
 var state;
 var feedButton;;
 var meridian;
-
+var LastFed;
 
 function setup() {
   createCanvas(500, 500);
@@ -32,7 +32,7 @@ function draw() {
 
   drawSprites();
  
- var hur = hour()
+  var hur = hour();
 
   dog.display();
 
@@ -52,6 +52,7 @@ function draw() {
       food.stock--;
       food.updatestock(food.stock);
       dog.state = "happy";
+      lastFed();
       hours();
     })
   }else if(food.stock === 0){
@@ -92,6 +93,7 @@ function hours(){
   food.updateLastFed(hor, min);
 }
 
-
-
-
+function lastFed(){
+  var min = minute();
+  LastFed = min;
+}
